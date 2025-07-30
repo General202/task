@@ -6,4 +6,7 @@
 <p>Статус: {{ task.get_status_display }}</p>
 <p>Приорітет: {{ task.get_priority_display }}</p>
 <small>Створено: {{ task.created_by.username }} - {{ task.created_at }}</small>
+<p>Оновлено: {{ task.updated_by.username }} - {{ task.updated_at }}</p>
+<a class="btn btn-primary" href="{% url 'task_update' task.pk %}">Редагувати</a>
+<a class="btn btn-danger" href="{% url 'task_delete' task.pk %}">Видалити</a>
 {% endblock %}
