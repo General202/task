@@ -11,9 +11,11 @@ class TaskListView(ListView):
     template_name = 'task_list.html'
     context_object_name = 'tasks'
 
+
 class TaskDetailView(DetailView):
     model = Task
     template_name = 'task_detail.html'
+
 
 class TaskCreateView(CreateView):
     model = Task
@@ -26,7 +28,6 @@ class TaskCreateView(CreateView):
         return super().form_valid(form)
     
     
-
 class TaskUpdateView(UpdateView):
     model = Task
     template_name = 'task_update.html'
@@ -36,6 +37,7 @@ class TaskUpdateView(UpdateView):
     def form_valid(self, form):
         form.instance.updated_by = self.request.user
         return super().form_valid(form)
+    
     
 class TaskDeleteView(DeleteView):
     model = Task
