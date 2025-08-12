@@ -20,6 +20,7 @@ class Task(models.Model):
     due_date = models.DateTimeField(null=True, blank=True, verbose_name='Термін виконання завдання:')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата створення завдання:')
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks_created', verbose_name='Створено користувачем:')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Оновлено:')
 
     def __str__(self):
         return f"{self.title}"
